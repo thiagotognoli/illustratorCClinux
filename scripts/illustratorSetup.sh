@@ -65,10 +65,10 @@ function install_illustratorCC() {
     local filename="illustratorCC17.tgz"
     local filemd5="d470b541cef1339a66ea33a998801f83"
     # local filelink="http://127.0.0.1:4050/illustratorCC17.tgz"
-    local filelink="https://victor.poshtiban.io/p/gictor/illustratorCC/illustratorCC17.tgz"
+    local filelink="http://victor.poshtiban.io/p/gictor/illustratorCC/illustratorCC17.tgz"
     local filepath="$CACHE_PATH/$filename"
 
-    download_component $filepath $filemd5 $filelink $filename
+    download_component "$filepath" $filemd5 "$filelink" "$filename"
 
     echo "===============| IllustratorCC17 |===============" >> "$SCR_PATH/wine-error.log"
 

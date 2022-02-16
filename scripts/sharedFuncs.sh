@@ -202,16 +202,16 @@ function download_component() {
                 downrez=$?
 
             elif [ "$curlpkg" == "true" ];then
-                show_message "using curl to download $4"
-                curl $3 -o $1
+                show_message "using curl to download from $3 to $4"
+                curl -k -L --max-redirs 10 -o "$1" "$3" 
                 downrez=$?
             else
                 show_message "using wget to download $4"
-                wget "$3" -P "$CACHE_PATH"
+                wget --no-check-certificate "$3" -P "$CACHE_PATH"
                 downrez=$?
             fi
             if [ "$downrez" -eq 0 ];then
-                notify-send "Illustrator CC" "$4 download completed" -i "download"
+                echo "Illustrator CC" "$4 download completed" #-i "download"
             fi
             ((tout++))
         fi
